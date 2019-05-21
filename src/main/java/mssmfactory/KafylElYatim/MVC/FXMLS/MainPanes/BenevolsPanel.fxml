@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.BenevolsPanelController">
+   <left>
+      <JFXDrawer fx:id="leftSidePane" defaultDrawerSize="250.0" BorderPane.alignment="CENTER">
+         <sidePane>
+            <BorderPane minWidth="0.0">
+               <center>
+                  <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/name.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newBenevoleNom" labelFloat="true" prefWidth="150.0" promptText="Nom" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/prenom.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newBenevolePrenom" labelFloat="true" prefWidth="150.0" promptText="Prenom" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <JFXRadioButton selected="true" text="Masculin">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="newBenevoleSexe" />
+                                 </toggleGroup>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/masculin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXRadioButton>
+                              <JFXRadioButton text="Feminin" toggleGroup="$newBenevoleSexe">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/feminin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXRadioButton>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/telport.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <JFXTextField fx:id="newBenevoleTelephone" labelFloat="true" prefWidth="150.0" promptText="N° Telephone" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="280.0" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/gmail.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newBenevoleEmail" labelFloat="true" prefWidth="150.0" promptText="E-mail" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="298.0" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/fb.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newBenevoleFacebook" labelFloat="true" prefWidth="150.0" promptText="Facebook" />
+                           </children>
+                        </HBox>
+                        <JFXButton onAction="#addNewBenevole" text="Confirmer">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/confirm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </BorderPane.margin>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </sidePane>
+      </JFXDrawer>
+   </left>
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <JFXButton onAction="#resetSearchBenevoles" text="Rafraichir la liste">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/reset.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#deleteBenevole" text="Supprimer un benevole">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/name.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextField fx:id="searchBenevolesNom" labelFloat="true" onKeyReleased="#searchBenevoles" prefWidth="150.0" promptText="Nom | Prenom" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/journeeDisponible.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchBenevolesJourneeDisponible" labelFloat="true" prefWidth="150.0" promptText="Journee disponible" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/vehicules.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchBenevolesVehicule" labelFloat="true" prefWidth="150.0" promptText="Vehicule" />
+               </items>
+            </ToolBar>
+         </center>
+         <left>
+            <JFXHamburger fx:id="leftPaneHamburger" style="-fx-border-color: lightgray; -fx-border-width: 0 1 1 0;" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding></JFXHamburger>
+         </left>
+      </BorderPane>
+   </top>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <TableView fx:id="tableBenevoles" editable="true" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="75.0" style="-fx-pref-height: 50;" text="N°">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/numero.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                <TableColumn prefWidth="120.0" text="Nom">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/name.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                  <TableColumn prefWidth="120.0" text="Prenom">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/prenom.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                  <TableColumn prefWidth="100.0" text="Genre">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/sexe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                  <TableColumn prefWidth="140.0" style="-: ;" text="Telephone">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/telport.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                  <TableColumn prefWidth="170.0" text="E-mail">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/gmail.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+                  <TableColumn prefWidth="170.0" text="Facebook">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/fb.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></TableColumn>
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <BorderPane BorderPane.alignment="CENTER">
+               <center>
+                  <Label fx:id="resultCount" text="Nombre de benevoles: 0" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+   </center>
+   <right>
+      <Accordion BorderPane.alignment="CENTER">
+         <panes>
+            <TitledPane text="Jours disponibles">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <ListView fx:id="listeJourneesDisponibles" prefHeight="200.0" prefWidth="200.0" />
+                     </center>
+                     <top>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <JFXButton onAction="#addNewJourneeDisponible">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXButton>
+                              <JFXButton onAction="#supprimerJourneeDisponible">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/minus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXButton>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/journeeDisponible.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TitledPane>
+            <TitledPane text="Vehicules">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <ListView fx:id="listeVehicules" prefHeight="200.0" prefWidth="200.0" />
+                     </center>
+                     <top>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <JFXButton onAction="#addNewVehicule">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXButton>
+                              <JFXButton onAction="#deleteVehicule">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/minus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXButton>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/vehicules.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TitledPane>
+         </panes>
+      </Accordion>
+   </right>
+   <padding>
+      <Insets bottom="25.0" />
+   </padding>
+</BorderPane>

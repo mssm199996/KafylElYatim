@@ -1,0 +1,17 @@
+.table-row-cell {
+    -fx-cell-size: 25px;
+    -fx-border-width: 0px;
+}
+
+.table-cell {
+	-fx-border-width: 1 1 0 0;
+	-fx-font-size: 9px;
+	-fx-border-color: lightgray;
+}
+
+.table-column {
+	-fx-alignment: CENTER;
+	-fx-background-color: white;
+	-fx-border-width: 1 1 0 0;
+	-fx-border-color: lightgray;
+}

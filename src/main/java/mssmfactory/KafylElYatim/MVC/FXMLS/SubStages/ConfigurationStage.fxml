@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.ConfigurationStageController">
+   <top>
+      <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Panneau de configuration" BorderPane.alignment="CENTER">
+         <content>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <TitledPane collapsible="false" text="Panneau des vehicules">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <content>
+                        <BorderPane style=": ;">
+                           <center>
+                              <ListView fx:id="listeVehicules" />
+                           </center>
+                           <top>
+                              <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <JFXButton onAction="#addNewVehicule" text="Ajouter un vehicule">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/plus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton onAction="#deleteVehicule" text="Supprimer un vehicule">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/minus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </top>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/vehicules.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane collapsible="false" text="Panneau des regions">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <content>
+                        <BorderPane>
+                           <center>
+                              <ListView fx:id="listeRegions" />
+                           </center>
+                           <top>
+                              <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <JFXButton onAction="#addNewRegion" text="Ajouter une region">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/plus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton onAction="#deleteRegion" text="Supprimer une region">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/minus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/region.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane collapsible="false" text="Panneau des appareils">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <content>
+                        <BorderPane>
+                           <center>
+                              <ListView fx:id="listeAppareillages" />
+                           </center>
+                           <top>
+                              <HBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <JFXButton onAction="#addNewAppareillage" text="Ajouter un appareil">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/plus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                    <JFXButton onAction="#deleteAppareillage" text="Supprimer un appareil">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/minus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </JFXButton>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/appareillage.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+               </children>
+            </HBox>
+         </content>
+         <graphic>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/setting.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </TitledPane>
+   </top>
+</BorderPane>

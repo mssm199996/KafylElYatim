@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <ImageView fitWidth="600.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../Icons/definition.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ImageView>
+   </top>
+   <bottom>
+      <SplitPane style="-fx-border-color: white;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="2.0" top="2.0" />
+         </BorderPane.margin>
+         <items>
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308">
+               <children>
+                  <Label text="Nombre de tuteurs:">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </items>
+      </SplitPane>
+   </bottom>
+   <center>
+      <TableView BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn prefWidth="90.0" style="-fx-background-color: white;" text="N°" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Nom" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Prenom" />
+            <TableColumn prefWidth="110.0" style="-fx-background-color: white;" text="Region" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="N° de telephone" />
+            <TableColumn minWidth="0.0" prefWidth="180.0" style="-fx-background-color: white;" text="Adresse" />
+            <TableColumn prefWidth="100.0" style="-fx-background-color: white;" text="Nbr Orphelins" />
+         </columns>
+      </TableView>
+   </center>
+</BorderPane>

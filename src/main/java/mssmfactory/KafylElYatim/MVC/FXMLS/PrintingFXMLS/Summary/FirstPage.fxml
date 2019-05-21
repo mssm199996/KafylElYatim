@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <ImageView fitWidth="500.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../../../Icons/definition.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </ImageView>
+   </top>
+   <center>
+      <TableView BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn prefWidth="151.0" text="Tuteur" />
+            <TableColumn prefWidth="151.0" style=": ;" text="Orphelin" />
+            <TableColumn prefWidth="45.0" style=": ;" text="Age" />
+            <TableColumn prefWidth="45.0" style=": ;" text="Genre" />
+            <TableColumn minWidth="0.0" prefWidth="130.0" style=": ;" text="Niveau scolaire" />
+            <TableColumn prefWidth="70.0" style=": ;" text="Decharge" />
+         </columns>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="5.0" style="-fx-border-color: lightgray; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Nombre d'orphelins:">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="2.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

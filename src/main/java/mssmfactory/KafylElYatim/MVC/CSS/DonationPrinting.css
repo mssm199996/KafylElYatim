@@ -1,0 +1,12 @@
+.table-row-cell {
+    -fx-cell-size: 25px;
+    -fx-border-width: 0px;
+}
+
+.table-cell {
+	-fx-border-width: 0px;
+}
+
+.table-column {
+  -fx-alignment: CENTER;
+}

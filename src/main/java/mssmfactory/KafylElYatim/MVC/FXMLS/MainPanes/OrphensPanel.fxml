@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.OrphensPanelController">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ToolBar>
+               <items>
+                  <JFXButton onAction="#deleteOrphelin" text="Supprimer un orphelin">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/ddn.png" />
+                     </image>
+                  </ImageView>
+                  <JFXDatePicker fx:id="dateMin" defaultColor="RED" prefWidth="125.0" promptText="Date min" />
+                  <JFXDatePicker fx:id="dateMax" defaultColor="#0022ff" prefWidth="125.0" promptText="Date max" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/age.jpg.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextField fx:id="searchAgeMinOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" prefWidth="50.0" promptText="Age min" />
+                  <JFXTextField fx:id="searchAgeMaxOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" prefWidth="50.0" promptText="Age max" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/sexe.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchSexeOrphelin" labelFloat="true" prefWidth="90.0" promptText="Genre" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/niveauScolaire.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchNiveauScolaire" labelFloat="true" prefWidth="120.0" promptText="Niveau scolaire" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView layoutX="1025.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/nombre.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchAnneeScolaire" labelFloat="true" layoutX="1229.0" layoutY="98.0" prefWidth="100.0" promptText="Annee scolaire" />
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#printOrphelins" text="Imprimer">
+                     <graphic>
+                        <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/print.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+               </items></ToolBar>
+         </center>
+         <left>
+            <JFXHamburger fx:id="leftHamburger" alignment="CENTER" style="-fx-border-image-width: 0 1 1 0; -fx-border-color: lightgray;" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></JFXHamburger>
+         </left>
+         <right>
+            <JFXHamburger fx:id="rightHamburger" alignment="CENTER" style="-fx-border-color: lightgray; -fx-border-width: 0 0 1 1;" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></JFXHamburger>
+         </right>
+      </BorderPane>
+   </top>
+   <left>
+      <JFXDrawer fx:id="leftDrawer" defaultDrawerSize="275.0" BorderPane.alignment="CENTER">
+         <sidePane>
+            <BorderPane minWidth="0.0">
+               <center>
+                  <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/name.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newNomOrphelin" labelFloat="true" prefWidth="150.0" promptText="Nom*" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/prenom.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newPrenomOrphelin" prefWidth="150.0" promptText="Prenom*" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/ddn.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXDatePicker fx:id="newDdnOrphelin" prefWidth="150.0" promptText="Date de naissance*" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <JFXRadioButton selected="true" text="Masculin">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="newSexeOrphelin" />
+                                 </toggleGroup>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/masculin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXRadioButton>
+                              <JFXRadioButton text="Feminin" toggleGroup="$newSexeOrphelin">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/feminin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXRadioButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/relation.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="newRelationTuteurOrphelin" labelFloat="true" prefWidth="150.0" promptText="Relation avec Tuteur" />
+                           </children>
+                        </HBox>
+                        <JFXButton onAction="#insertNewOrphelin" text="Confirmer">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/confirm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </BorderPane.margin>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </sidePane>
+   	</JFXDrawer>
+   </left>
+   <right>
+      <JFXDrawer fx:id="rightDrawer" defaultDrawerSize="300.0" direction="RIGHT" minWidth="0.0" BorderPane.alignment="CENTER">
+         <sidePane>
+            <Accordion>
+              <panes>
+                <TitledPane text="Dossier famillial">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <bottom>
+                              <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateDossierFamillial" text="Mettre a jour" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/update.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <BorderPane.margin>
+                                    <Insets top="15.0" />
+                                 </BorderPane.margin></JFXButton>
+                           </bottom>
+                           <center>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/typeOrphelinat.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXComboBox fx:id="updateTypeOrphelinat" labelFloat="true" prefWidth="150.0" promptText="Orphelin de ?" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/name.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updateNomPere" labelFloat="true" prefWidth="150.0" promptText="Nom du pere" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/prenom.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updatePrenomPere" labelFloat="true" prefWidth="150.0" promptText="Prenom du pere" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/name.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updateNomMere" labelFloat="true" prefWidth="150.0" promptText="Nom de la mere" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/prenom.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updatePrenomMere" labelFloat="true" prefWidth="150.0" promptText="Prenom de la mere" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="10.0" layoutY="179.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/situationSociale.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updateSituationSociale" labelFloat="true" prefWidth="150.0" promptText="Situation familliale" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/dossierFamilial.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                <TitledPane text="Dossier Scolaire">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <bottom>
+                              <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateDossierScolaire" text="Mettre a jour" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/update.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></JFXButton>
+                           </bottom>
+                           <center>
+                              <ScrollPane hbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                                 <content>
+                                    <VBox alignment="CENTER" spacing="20.0">
+                                       <children>
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/niveauScolaire.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXComboBox fx:id="updateNiveauScolaire" labelFloat="true" prefWidth="150.0" promptText="Niveau scolaire" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/nombre.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXComboBox fx:id="updateAnneeScolaire" labelFloat="true" prefWidth="150.0" promptText="Année scolaire" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/date.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXDatePicker fx:id="updateDDMAJDS" prefWidth="160.0" promptText="Date de dernière MAJ" />
+                                             </children>
+                                          </HBox>
+                                          <TitledPane expanded="false" minHeight="200.0" prefWidth="220.0" text="Observations">
+                                             <graphic>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/observation.jpg.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <content>
+                                                <BorderPane>
+                                                   <center>
+                                                      <JFXTextArea fx:id="updateObservationDossierScolaire" labelFloat="true" prefHeight="75.0" promptText="Observations" BorderPane.alignment="CENTER">
+                                                         <BorderPane.margin>
+                                                            <Insets top="10.0" />
+                                                         </BorderPane.margin>
+                                                      </JFXTextArea>
+                                                   </center>
+                                                </BorderPane>
+                                             </content>
+                                          </TitledPane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/dossierScolaire.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane layoutX="10.0" layoutY="36.0" text="Dossier medical">
+                     <content>
+                        <BorderPane>
+                           <center>
+                              <VBox alignment="TOP_CENTER" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TitledPane expanded="false" text="Pathologie">
+                                       <content>
+                                          <BorderPane>
+                                             <center>
+                                                <JFXTextArea fx:id="updatePathologie" labelFloat="true" promptText="Pathologie">
+                                                   <padding>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </padding>
+                                                   <BorderPane.margin>
+                                                      <Insets top="5.0" />
+                                                   </BorderPane.margin>
+                                                </JFXTextArea>
+                                             </center>
+                                          </BorderPane>
+                                       </content>
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/pathologie.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </TitledPane>
+                                    <TitledPane expanded="false" text="Medicaments">
+                                       <content>
+                                          <BorderPane>
+                                             <center>
+                                                <JFXTextArea fx:id="updateMedicament" labelFloat="true" promptText="Medicaments">
+                                                   <BorderPane.margin>
+                                                      <Insets top="5.0" />
+                                                   </BorderPane.margin>
+                                                </JFXTextArea>
+                                             </center>
+                                          </BorderPane>
+                                       </content>
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/medicaments.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </TitledPane>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <bottom>
+                              <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateDossierMedical" text="Mettre à jour" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/update.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </bottom>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/dossierMedical.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane layoutX="10.0" layoutY="544.0" text="Apparence physique">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/pointure.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="updatePointure" labelFloat="true" prefWidth="150.0" promptText="Pointure" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/date.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXDatePicker fx:id="updateDDMAJAP" prefWidth="150.0" promptText="Date derniere MAJ" />
+                                       </children>
+                                    </HBox>
+                                    <TitledPane text="Observations">
+                                       <content>
+                                          <BorderPane>
+                                             <center>
+                                                <JFXTextArea fx:id="updateObservationAP" labelFloat="true" promptText="Observations">
+                                                   <BorderPane.margin>
+                                                      <Insets top="10.0" />
+                                                   </BorderPane.margin>
+                                                </JFXTextArea>
+                                             </center>
+                                          </BorderPane>
+                                       </content>
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/observation.jpg.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </TitledPane>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <bottom>
+                              <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateApparencePhysique" text="Mettre à jour" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/update.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <BorderPane.margin>
+                                    <Insets top="10.0" />
+                                 </BorderPane.margin>
+                              </JFXButton>
+                           </bottom>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/apparencePhysique.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane prefHeight="200.0" prefWidth="200.0" text="Appareillages">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <ListView fx:id="listeAppareillages" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                           </center>
+                           <top>
+                              <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <JFXButton onAction="#insertNewAppareillage">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/plus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></JFXButton>
+                                    <JFXButton onAction="#deleteAppareillage">
+                                       <graphic>
+                                          <ImageView pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/minus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic></JFXButton>
+                                 </children>
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </top>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/appareillage.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+                  <TitledPane prefHeight="200.0" prefWidth="200.0" text="Informations supplémentaires">
+                     <content>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <bottom>
+                              <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateInformationsSupplimentaires" text="Mettre à jour" BorderPane.alignment="CENTER">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/update.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <BorderPane.margin>
+                                    <Insets bottom="20.0" top="5.0" />
+                                 </BorderPane.margin>
+                              </JFXButton>
+                           </bottom>
+                           <center>
+                              <TitledPane maxHeight="1.7976931348623157E308" text="Observations" BorderPane.alignment="CENTER">
+                                 <content>
+                                    <BorderPane>
+                                       <center>
+                                          <JFXTextArea fx:id="updateObservationsOrphelin" labelFloat="true" promptText="Observations">
+                                             <BorderPane.margin>
+                                                <Insets top="10.0" />
+                                             </BorderPane.margin>
+                                          </JFXTextArea>
+                                       </center>
+                                    </BorderPane>
+                                 </content>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/observation.jpg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </TitledPane>
+                           </center>
+                        </BorderPane>
+                     </content>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/information.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TitledPane>
+              </panes>
+            </Accordion>
+         </sidePane>
+      </JFXDrawer>
+   </right>
+   <center>
+      <SplitPane dividerPositions="0.5, 0.5" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane maxWidth="250.0" minWidth="0.0">
+               <top>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <left>
+                        <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../../Icons/recherche.png" />
+                           </image>
+                           <BorderPane.margin>
+                              <Insets left="5.0" right="5.0" top="7.0" />
+                           </BorderPane.margin>
+                        </ImageView>
+                     </left>
+                     <center>
+                        <JFXTextField fx:id="searchNomTuteur" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyReleased="#searchTuteurs" promptText="Nom du tuteur" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets right="5.0" />
+                           </BorderPane.margin>
+                        </JFXTextField>
+                     </center>
+                     <BorderPane.margin>
+                        <Insets top="10.0" />
+                     </BorderPane.margin>
+                  </BorderPane>
+               </top>
+               <center>
+                  <ListView fx:id="listeTuteurs" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin></ListView>
+               </center>
+            </BorderPane>
+            <BorderPane>
+               <center>
+                  <TableView fx:id="tableOrphelins" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="N°">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/numero.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                      <TableColumn prefWidth="120.0" text="Nom">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/name.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="120.0" text="Prenom">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/prenom.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="150.0" text="Date de naissance">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/ddn.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="75.0" text="Age">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/age.jpg.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="100.0" text="Genre">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/sexe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="150.0" text="Tuteur">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/tuteurs.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="170.0" text="Relation avec tuteur">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/relation.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                    </columns>
+                  </TableView>
+               </center>
+               <bottom>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <center>
+                        <Label fx:id="resultCount" text="Nombre d'orphelins: 0" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </center>
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                  </BorderPane>
+               </bottom>
+               <top>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXTextField fx:id="searchNomOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" promptText="Nom de l'orphelin" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets right="5.0" />
+                           </BorderPane.margin>
+                        </JFXTextField>
+                     </center>
+                     <left>
+                        <JFXButton onAction="#resetSearch" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/reset.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </BorderPane.margin>
+                        </JFXButton>
+                     </left>
+                     <BorderPane.margin>
+                        <Insets top="2.0" />
+                     </BorderPane.margin>
+                     <right>
+                        <JFXCheckBox fx:id="displayAll" text="Afficher tout" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </BorderPane.margin>
+                        </JFXCheckBox>
+                     </right>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+            <BorderPane layoutX="10.0" layoutY="10.0" maxWidth="300.0" minWidth="0.0">
+               <center>
+                  <ListView fx:id="listeOrphelinsAges" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#authorizeOrphen" text="Autoriser">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </ListView>
+               </center>
+               <top>
+                  <HBox alignment="CENTER" spacing="5.0" style="-fx-border-color: lightgray;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" text="Liste des orphelins agés" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton onAction="#listAuthorizedOrphens">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/description.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </center>
+   <padding>
+      <Insets bottom="25.0" />
+   </padding>
+</BorderPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <TableView BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn prefWidth="90.0" style="-fx-background-color: white;" text="N°" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Nom" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Prenom" />
+            <TableColumn prefWidth="110.0" style="-fx-background-color: white;" text="Region" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="N° de telephone" />
+            <TableColumn minWidth="0.0" prefWidth="180.0" style="-fx-background-color: white;" text="Adresse" />
+            <TableColumn prefWidth="100.0" style="-fx-background-color: white;" text="Nbr Orphelins" />
+         </columns>
+      </TableView>
+   </top>
+</BorderPane>

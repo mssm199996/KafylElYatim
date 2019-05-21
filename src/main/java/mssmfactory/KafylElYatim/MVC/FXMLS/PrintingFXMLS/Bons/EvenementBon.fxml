@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <ImageView fitWidth="415.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@../../../Icons/definition.png" />
+               </image>
+            </ImageView>
+         </top>
+         <center>
+            <Label text="Decharge bon d'achat" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Label>
+         </center>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
+      </BorderPane>
+   </top>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <TableView minHeight="0.0" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn prefWidth="40.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="N°" />
+                  <TableColumn prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="Nom" />
+                  <TableColumn prefWidth="100.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="Prenom" />
+                  <TableColumn prefWidth="40.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="Age" />
+                  <TableColumn prefWidth="40.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="Genre" />
+                  <TableColumn prefWidth="110.0" style="-fx-background-color: white; -fx-font-size: 7pt;" text="Bon (cout)" />
+               </columns>
+            </TableView>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.5" style="-fx-border-color: white;" BorderPane.alignment="CENTER">
+               <items>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Nombre d'orphelins:">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Montant total:">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </items>
+            </SplitPane>
+         </center>
+         <bottom>
+            <HBox maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </bottom>
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" spacing="50.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" text="N° d'evenement:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="321" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" text="Designation:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="Une designation">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <BorderPane>
+               <left>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" text="Description:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="AABBCCDDEEFF" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </left>
+               <right>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" text="Tlemcen le:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="JJ/MM/YYYY" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+            <HBox alignment="CENTER_LEFT" spacing="5.0">
+               <children>
+                  <Label alignment="CENTER" text="Nom du Tuteur:">
+                     <font>
+                        <Font name="System Bold" size="8.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" text="LEFTA Abdraouf" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="8.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="75.0">
+               <children>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" text="N° Mobile:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="0559604578" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" text="Adresse:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="485 Les Dahlias Kiffan" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label alignment="CENTER" text="ZONE:">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="Tlemcen" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="8.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="10.0" />
+         </BorderPane.margin></VBox>
+   </center>
+</BorderPane>

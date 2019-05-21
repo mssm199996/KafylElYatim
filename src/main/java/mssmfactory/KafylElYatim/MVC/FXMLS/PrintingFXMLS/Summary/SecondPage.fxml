@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <TableView BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn prefWidth="151.0" text="Tuteur" />
+            <TableColumn prefWidth="151.0" text="Orphelin" />
+            <TableColumn prefWidth="45.0" text="Age" />
+            <TableColumn prefWidth="45.0" text="Genre" />
+            <TableColumn minWidth="0.0" prefWidth="130.0" text="Niveau scolaire" />
+            <TableColumn prefWidth="70.0" text="Decharge" />
+         </columns>
+      </TableView>
+   </top>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

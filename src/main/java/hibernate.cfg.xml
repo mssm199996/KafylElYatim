@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:sqlite:Database/KafylElYatim</property>
+    <property name="connection.driver_class">org.sqlite.JDBC</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
+    <property name="connection.pool_size">1</property>
+	
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.DonationsAdministration.Donation"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.DonationsAdministration.Donator"/>
+    
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.Habitat"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.Region"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.SituationSociale"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.Enquete"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.DossierMedical"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.TutorsAdministration.Tuteur"/>
+    
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.Orphelin"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.Appareillage"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.ApparencePhysique"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.DossierFamilial"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.DossierMedical"/>
+    <mapping class="mssmfactory.KafylElYatim.DomainModel.OrphensAdministration.DossierScolaire"/>
+
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.BenevolsAdministration.Benevole"/>
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.BenevolsAdministration.JourneeDisponible"/>
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.BenevolsAdministration.Vehicule"/>
+	
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.EventsAdministration.Evenement"/>
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.EventsAdministration.EvenementBon"/>
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.EventsAdministration.EvenementDecharge"/>
+	<mapping class="mssmfactory.KafylElYatim.DomainModel.EventsAdministration.Action"/>
+	
+  </session-factory>
+</hibernate-configuration>

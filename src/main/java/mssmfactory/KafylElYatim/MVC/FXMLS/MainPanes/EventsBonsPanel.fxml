@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.EventsBonsController">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ToolBar prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/ddn.png" />
+                     </image>
+                  </ImageView>
+                  <JFXDatePicker fx:id="dateMin" defaultColor="RED" prefWidth="125.0" promptText="Date min" />
+                  <JFXDatePicker fx:id="dateMax" defaultColor="#0022ff" prefWidth="125.0" promptText="Date max" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/age.jpg.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextField fx:id="searchAgeMinOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" prefWidth="50.0" promptText="Age min" />
+                  <JFXTextField fx:id="searchAgeMaxOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" prefWidth="50.0" promptText="Age max" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/sexe.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchSexeOrphelin" labelFloat="true" prefWidth="90.0" promptText="Genre" />
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#addAllCurrentOrphelins" text="Ajouter tout">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/addAll.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#removeAllCurrentOrphelins" text="Supprimer tout">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/minusAll.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/niveauScolaire.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchNiveauScolaire" labelFloat="true" prefWidth="120.0" promptText="Niveau scolaire" />
+                  <Separator layoutX="936.0" layoutY="10.0" orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/nombre.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="searchAnneeScolaire" labelFloat="true" prefWidth="100.0" promptText="Annee scolaire" />
+                  <Separator layoutX="1101.0" layoutY="10.0" orientation="VERTICAL" />
+                  <JFXButton onAction="#printBons" text="Imprimer">
+                     <graphic>
+                        <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/print.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+               </items></ToolBar>
+         </center>
+      </BorderPane>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.5, 0.5" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane maxWidth="200.0" minWidth="0.0">
+               <top>
+                  <VBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" style="-fx-border-color: lightgray;">
+                           <children>
+                              <Label text="Liste des evenements">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <JFXButton onAction="#addEvent" style="-fx-border-color: lightgray;" text="Ajouter">
+                                 <graphic>
+                                    <ImageView fitHeight="17.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="1.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton onAction="#deleteEvent" style="-fx-border-color: lightgray;" text="Supprimer">
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/minus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                  </VBox>
+               </top>
+               <center>
+                  <ListView fx:id="listeEvents" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </BorderPane.margin>
+                  </ListView>
+               </center>
+            </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TableView fx:id="tableOrphelins" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn prefWidth="75.0" style="-fx-pref-height: 45;" text="N°">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/numero.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                      <TableColumn prefWidth="120.0" text="Nom">
+                           <graphic>
+                              <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/name.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="120.0" text="Prenom">
+                           <graphic>
+                              <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/prenom.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="150.0" text="Date de naissance">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/ddn.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="75.0" text="Age">
+                           <graphic>
+                              <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/age.jpg.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="100.0" text="Genre">
+                           <graphic>
+                              <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/sexe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="150.0" text="Tuteur">
+                           <graphic>
+                              <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/tuteurs.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></TableColumn>
+                        <TableColumn prefWidth="160.0" text="Ajouter à la liste">
+                           <graphic>
+                              <HBox alignment="CENTER" spacing="5.0">
+                                 <children>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/plus.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Separator orientation="VERTICAL" rotate="20.0" />
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/minus.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </graphic></TableColumn>
+                    </columns>
+                  </TableView>
+               </center>
+               <top>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXTextField fx:id="searchNomOrphelin" labelFloat="true" onKeyReleased="#searchOrphelins" promptText="Nom de l'orphelin" BorderPane.alignment="CENTER" />
+                     </center>
+                     <left>
+                        <JFXButton onAction="#resetSearch" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/reset.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                        </JFXButton>
+                     </left>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+            <BorderPane layoutX="10.0" layoutY="10.0" maxWidth="200.0" minWidth="0.0">
+               <center>
+                  <ListView fx:id="listeOrphelins" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </BorderPane.margin></ListView>
+               </center>
+               <top>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                     <center>
+                        <Label alignment="CENTER" style="-fx-border-color: lightgray;" text="Liste des orphelins selectionnes" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                        </Label>
+                     </center>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>

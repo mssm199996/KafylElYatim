@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.ActionsPanelController">
+   <left>
+      <BorderPane maxWidth="250.0" minWidth="0.0" BorderPane.alignment="CENTER">
+         <top>
+            <BorderPane BorderPane.alignment="CENTER">
+               <left>
+                  <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../Icons/recherche.png" />
+                     </image>
+                     <BorderPane.margin>
+                        <Insets left="5.0" right="5.0" top="7.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+               </left>
+               <center>
+                  <JFXTextField fx:id="searchNomTuteur" labelFloat="true" maxWidth="1.7976931348623157E308" onKeyReleased="#searchTuteurs" promptText="Nom du tuteur" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
+                  </JFXTextField>
+               </center>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </top>
+         <center>
+            <ListView fx:id="listeTuteurs" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </ListView>
+         </center>
+      </BorderPane>
+   </left>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <TableView fx:id="tableActions">
+               <columns>
+                  <TableColumn prefWidth="90.0" text="N°">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/numero.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="200.0" text="Tuteur">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/tuteurs.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn minWidth="1.0" prefWidth="250.0" text="Designation de l'evenement">
+                     <graphic>
+                        <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/designation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="250.0" text="Description de l'evenement">
+                     <graphic>
+                        <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/description.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn minWidth="0.0" prefWidth="220.0" text="Quantite aquises (Lots/Bons)">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/nombre.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+               </columns>
+            </TableView>
+         </center>
+         <BorderPane.margin>
+            <Insets bottom="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </BorderPane>
+   </center>
+</BorderPane>

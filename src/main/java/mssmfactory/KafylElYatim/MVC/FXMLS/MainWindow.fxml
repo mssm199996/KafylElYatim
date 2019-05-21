@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.MainWindowController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="DonationsPanelTab" style="-fx-pref-height: 70;" text="Gest.Donations">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/donations.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="TutorsPaneTab" style="-fx-pref-height: 70;" text="Gest.Tuteurs">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/tuteurs.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="OrphensPaneTab" style="-fx-pref-height: 70;" text="Gest.Orphelin">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/orphelins.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="BenevolsPaneTab" style="-fx-pref-height: 70;" text="Gest.Benevoles">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/benevols.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="EventsDechargeTabPane" style="-fx-pref-height: 70;" text="Gest.Decharges">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/eventdecharge.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="EventsBonTabPane" style="-fx-pref-height: 70;" text="Gest.Bons d'achat">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/eventBon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="HistoriqueActionsPane" style="-fx-pref-height: 70;" text="Historique des actions">
+               <graphic>
+                  <ImageView fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/Statistiques.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab style="-fx-pref-height: 70;">
+               <graphic>
+                  <JFXButton onAction="#showConfigurationStage">
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </graphic>
+            </Tab>
+            <Tab style="-fx-pref-height: 70;">
+               <graphic>
+                  <JFXButton onAction="#authentificteSuperUser">
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/logo5.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </graphic>
+            </Tab>
+            <Tab style="-fx-pref-height: 70;">
+               <graphic>
+                  <JFXButton onAction="#printSummary">
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/print.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,7 @@
+.table-column {
+  -fx-alignment: CENTER;
+}
+
+.table-row-cell {
+	-fx-cell-size: 30px;
+}

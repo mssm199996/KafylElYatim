@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.BilansDonationsController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/date.png" />
+               </image>
+            </ImageView>
+            <JFXDatePicker fx:id="SearchDonationDateDebutDatePicker" defaultColor="RED" promptText="Date de début" />
+            <JFXDatePicker fx:id="SearchDonationDateFinDatePicker" defaultColor="#4000ff" promptText="Date de fin" />
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <TableView fx:id="DonationsTableView" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn prefWidth="75.0" style="-fx-pref-height: 50;" text="N°">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/numero.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn prefWidth="150.0" text="Type">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/type.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn prefWidth="150.0" text="Forme">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/forme.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn prefWidth="150.0" text="Valeur">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/montant.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn prefWidth="120.0" text="Date">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/date.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn prefWidth="200.0" text="Nom du donateur">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/name.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+         </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <SplitPane dividerPositions="0.5" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane>
+               <center>
+                  <Label fx:id="resultCount" text="Nombre de donations: 45">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+            <BorderPane>
+               <center>
+                  <Label fx:id="resultAmount" text="Total des donations: 12358462">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+            </BorderPane>
+         </items>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </SplitPane>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <TableView BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-background-color: white;" text="N°" />
+          <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Type" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Forme" />
+            <TableColumn prefWidth="170.0" style="-fx-background-color: white;" text="Montant" />
+            <TableColumn prefWidth="120.0" style="-fx-background-color: white;" text="Date" />
+        </columns>
+      </TableView>
+   </top>
+   <bottom>
+      <HBox maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.DonationsPanelController">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ToolBar cache="true" prefHeight="40.0" prefWidth="200.0">
+               <items>
+                  <JFXButton onAction="#resetSearchingDonations" text="Rafraichir la liste">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/reset.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#deleteDonation" text="Supprimer une donation">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/delete.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/numero.png" />
+                     </image>
+                  </ImageView>
+                  <JFXTextField fx:id="SearchDonationIdentifiantTextField" labelFloat="true" onAction="#refreshDonations" onKeyReleased="#refreshDonations" prefWidth="100.0" promptText="Id de la donation" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/type.png" />
+                     </image>
+                  </ImageView>
+                  <JFXComboBox fx:id="SearchDonationTypeComboBox" labelFloat="true" prefWidth="120.0" promptText="Type de donation" />
+                  <Separator orientation="VERTICAL" />
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/date.png" />
+                     </image>
+                  </ImageView>
+                  <JFXDatePicker fx:id="SearchDonationDateDebutDatePicker" defaultColor="RED" promptText="Date de début" />
+                  <JFXDatePicker fx:id="SearchDonationDateFinDatePicker" defaultColor="#4000ff" promptText="Date de fin" />
+                  <Separator orientation="VERTICAL" />
+                  <JFXButton onAction="#printDonations" text="Imprimer le resultat">
+                     <graphic>
+                        <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/print.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></JFXButton>
+               </items>
+            </ToolBar>
+         </center>
+         <left>
+            <JFXHamburger fx:id="leftHamburger" alignment="CENTER" style="-fx-border-color: lightgray; -fx-border-width: 0 1 1 0;" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </JFXHamburger>
+         </left>
+      </BorderPane>
+   </top>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <center>
+            <TableView fx:id="DonationsTableView">
+               <columns>
+                  <TableColumn prefWidth="75.0" style="-fx-pref-height: 50;" text="N°">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/numero.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="150.0" text="Type">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/type.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="150.0" text="Forme">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/forme.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="150.0" text="Valeur">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/montant.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="120.0" text="Date">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/date.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+                  <TableColumn prefWidth="200.0" text="Nom du donateur">
+                     <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/name.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </TableColumn>
+               </columns>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <bottom>
+            <BorderPane BorderPane.alignment="CENTER">
+               <center>
+                  <Label fx:id="resultCount" text="Nombre de donations: 0" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+               <BorderPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </BorderPane.margin>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+   </center>
+   <right>
+      <JFXDrawer fx:id="rightDrawer" defaultDrawerSize="275.0" direction="RIGHT" minWidth="0.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane>
+               <center>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <items>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <top>
+                              <BorderPane BorderPane.alignment="CENTER">
+                                 <center>
+                                    <JFXTextField fx:id="searchDonateursName" labelFloat="true" onKeyReleased="#searchDonateurs" promptText="Nom du donateur">
+                                       <BorderPane.margin>
+                                          <Insets right="5.0" />
+                                       </BorderPane.margin>
+                                    </JFXTextField>
+                                 </center>
+                                 <left>
+                                    <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../../Icons/recherche.png" />
+                                       </image>
+                                       <BorderPane.margin>
+                                          <Insets left="5.0" right="5.0" top="8.0" />
+                                       </BorderPane.margin>
+                                    </ImageView>
+                                 </left>
+                                 <BorderPane.margin>
+                                    <Insets top="10.0" />
+                                 </BorderPane.margin>
+                                 <right>
+                                    <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <JFXButton onAction="#addNewDonateur">
+                                             <graphic>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/plus.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                          <JFXButton layoutY="10.0" onAction="#deleteDonateur">
+                                             <graphic>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/minus.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </right>
+                              </BorderPane>
+                           </top>
+                           <center>
+                              <ListView fx:id="listeDonateurs" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </BorderPane.margin>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#bilanDons" text="Bilan des dons">
+                                             <graphic>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/description.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic></MenuItem>
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </ListView>
+                           </center>
+                        </BorderPane>
+                        <Accordion minHeight="0.0">
+                           <panes>
+                              <TitledPane text="Observations">
+                                 <content>
+                                    <BorderPane>
+                                       <center>
+                                          <JFXTextArea fx:id="UpdateDonationObservationTextArea" labelFloat="true" promptText="Observations">
+                                             <BorderPane.margin>
+                                                <Insets top="10.0" />
+                                             </BorderPane.margin>
+                                          </JFXTextArea>
+                                       </center>
+                                       <bottom>
+                                          <JFXButton maxWidth="1.7976931348623157E308" onAction="#updateDonationObservation" text="Mettre à jour" BorderPane.alignment="CENTER">
+                                             <graphic>
+                                                <ImageView pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Icons/update.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                             <BorderPane.margin>
+                                                <Insets top="10.0" />
+                                             </BorderPane.margin>
+                                          </JFXButton>
+                                       </bottom>
+                                    </BorderPane>
+                                 </content>
+                                 <graphic>
+                                    <ImageView pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Icons/observation.jpg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </TitledPane>
+                           </panes>
+                        </Accordion>
+                     </items>
+                  </SplitPane>
+               </center>
+            </BorderPane>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </JFXDrawer>
+   </right>
+   <left>
+      <JFXDrawer fx:id="leftDrawer" defaultDrawerSize="275.0" BorderPane.alignment="CENTER">
+         <sidePane>
+            <BorderPane minWidth="0.0">
+               <center>
+                  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" spacing="20.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/type.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXComboBox fx:id="NewDonationTypeComboBox" labelFloat="true" prefWidth="200.0" promptText="Type de la donation*">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </JFXComboBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="10.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/forme.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXComboBox fx:id="NewDonationFormeComboBox" labelFloat="true" prefWidth="200.0" promptText="Forme de la donation*" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/montant.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXTextField fx:id="NewDonationMontantTextField" labelFloat="true" prefWidth="200.0" promptText="Valeur de la donation*">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/date.png" />
+                                 </image>
+                              </ImageView>
+                              <JFXDatePicker fx:id="NewDonationDateDatePicker" defaultColor="#008f0c" prefWidth="200.0" promptText="Date de la donation*">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </JFXDatePicker>
+                           </children>
+                        </HBox>
+                        <JFXButton onAction="#addDonation" prefHeight="45.0" prefWidth="200.0" text="Confirmer l'ajout">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/confirm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </sidePane>
+      </JFXDrawer>
+   </left>
+   <padding>
+      <Insets bottom="25.0" />
+   </padding>
+</BorderPane>
